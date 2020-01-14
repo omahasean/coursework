@@ -218,14 +218,33 @@ Untracked files:
   (use "git add <file>..." to include in what will be committed)
 
 	Helloworld.java.copy
-$ <enter the Git command to "stage" all changes>
-<type or copy-paste the result here>
+$ git add -A
+On branch master
+Your branch is ahead of 'origin/master' by 1 commit.
+  (use "git push" to publish your local commits)
 
-$ <enter the Git command to save all "staged" changes>
-<type or copy-paste the result here>
+Changes to be committed:
+  (use "git reset HEAD <file>..." to unstage)
+
+	modified:   ../../../../../../introduction-to-tools-exercises.txt
+	new file:   Helloworld.java.copy
+
+
+$ git commit -m "Feature Finished Commit"
+
+[master 4e896fa] Feature Finished Commit
+ 2 files changed, 37 insertions(+), 11 deletions(-)
+ create mode 100755 module-1/01_Introduction_Tools/student-exercise/java-helloworld/src/main/java/com/techelevator/Helloworld.java.copy
 
 $ git push origin master
-<type or copy-paste the result here>
+
+Counting objects: 18, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (16/16), done.
+Writing objects: 100% (18/18), 2.28 KiB | 778.00 KiB/s, done.
+Total 18 (delta 5), reused 0 (delta 0)
+To https://bitbucket.org/te-cbus-cohort-10/seangriswold-java-green-material.git
+   a1cba1a..4e896fa  master -> master
 
 
 ----
@@ -236,9 +255,13 @@ $ rm Helloworld.java.copy
 
 The "rm" parameter is the name of the file to be deleted.
 
-$ <enter command to list all files and directories in order to confirm the file deletion>
-<type or copy-paste the result here>
+$ ls -la
 
+total 8
+drwxr-xr-x  3 sgriswold  staff   96 Jan 13 19:47 .
+drwxr-xr-x  3 sgriswold  staff   96 Jan 13 16:29 ..
+-rwxr-xr-x  1 sgriswold  staff  141 Jan 13 16:29 Helloworld.java
+Techs-MacBook-Air-26:techelevator sgriswold$ 
 
 ----
 17. Change directory to the java-helloworld directory using either one of the
@@ -258,9 +281,9 @@ command line when that seems natural.
 
 Regardless of the option you chose, check your new location.
 
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ pwd
 
+/Users/sgriswold/Development/seangriswold-java-green-material/module-1/01_Introduction_Tools/student-exercise/java-helloworld
 
 ----
 18. Create a documentation directory named "docs" under java-helloworld, and then
@@ -268,9 +291,10 @@ $ <enter command to display present working directory>
 ----
 
 $ mkdir docs
-$ <enter the command to change directory to "docs" using a relative path>
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ cd docs
+$ pwd
+
+/Users/sgriswold/Development/seangriswold-java-green-material/module-1/01_Introduction_Tools/student-exercise/java-helloworld/docs
 
 ----
 19. Create a new file name "readme.txt" using Visual Studio Code, and add the text
@@ -287,7 +311,7 @@ Don't forget to save the file in Visual Studio Code!
     work so it can be reviewed by an instructor.
 ----
 
-$ <enter the Git command to display status>
+$ git status
 
 $ <enter the Git command to "stage" all changes>
 
