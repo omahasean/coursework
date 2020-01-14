@@ -140,8 +140,8 @@ along, and then at the end.
 ----
 
 $ cd src/main/java/com/techelevator
-$ <enter command to display present working directory>
-<type or copy-paste your present working directory here>
+$ pwd
+/Users/sgriswold/Development/seangriswold-java-green-material/module-1/01_Introduction_Tools/student-exercise/java-helloworld/src/main/java/com/techelevator
 
 
 ----
@@ -149,7 +149,7 @@ $ <enter command to display present working directory>
     path?
 ----
 
-<type your answer here>
+Relative
 
 
 ----
@@ -158,7 +158,9 @@ $ <enter command to display present working directory>
 ----
 
 $ <enter command to list all files and directories including dot-files and dot-directories>
-<type or copy-paste the result here>
+drwxr-xr-x  3 sgriswold  staff   96 Jan 13 16:29 .
+drwxr-xr-x  3 sgriswold  staff   96 Jan 13 16:29 ..
+-rwxr-xr-x  1 sgriswold  staff  141 Jan 13 16:29 Helloworld.java
 
 
 ----
@@ -172,23 +174,30 @@ $ cp Helloworld.java Helloworld.java.backup
 The "cp" parameters are the name of the source file followed by the name of the
 destination file.
 
-$ <enter command to list all files and directories in order to confirm the creation of the backup file>
-<type or copy-paste the result here>
+$ ls -la
+
+drwxr-xr-x  4 sgriswold  staff  128 Jan 13 19:37 .
+drwxr-xr-x  3 sgriswold  staff   96 Jan 13 16:29 ..
+-rwxr-xr-x  1 sgriswold  staff  141 Jan 13 16:29 Helloworld.java
+-rwxr-xr-x  1 sgriswold  staff  141 Jan 13 19:37 Helloworld.java.backup
 
 
 ----
 14. Rename "Helloworld.java.backup" to "Helloworld.java.copy" using the move
     command. (There is no rename command in UNIX.)
 ----
-
+Ls
 $ mv Helloworld.java.backup Helloworld.java.copy
 
 The "mv" parameters are the existing name of the file followed by the new name
 of the file.
 
-$ <enter command to list all files and directories in order to confirm the renaming of the file>
-<type or copy-paste the result here>
+$ ls -la
 
+drwxr-xr-x  4 sgriswold  staff  128 Jan 13 19:38 .
+drwxr-xr-x  3 sgriswold  staff   96 Jan 13 16:29 ..
+-rwxr-xr-x  1 sgriswold  staff  141 Jan 13 16:29 Helloworld.java
+-rwxr-xr-x  1 sgriswold  staff  141 Jan 13 19:37 Helloworld.java.copy
 
 ----
 15. Let's call this a "feature complete" point in the exercises, and not only
@@ -198,9 +207,17 @@ $ <enter command to list all files and directories in order to confirm the renam
     others on our teams.
 ----
 
-$ <enter the Git command to display status>
-<type or copy-paste the result here>
+$ git status
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git checkout -- <file>..." to discard changes in working directory)
 
+	modified:   ../../../../../../introduction-to-tools-exercises.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+
+	Helloworld.java.copy
 $ <enter the Git command to "stage" all changes>
 <type or copy-paste the result here>
 
