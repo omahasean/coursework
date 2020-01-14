@@ -15,7 +15,7 @@ actual command from other text in Unix documentation.
     refer to?
 ----
 
-<type your response here>
+The User profile (in my case the sgriswold)
 
 ----
 3.  A good habit to develop, especially while you're developing your skills on
@@ -24,7 +24,8 @@ actual command from other text in Unix documentation.
 ----
 
 $ pwd
-<type or copy-paste the result here>
+
+/Users/sgriswold/Development/seangriswold-java-green-material/module-1/01_Introduction_Tools/student-exercise/java-helloworld
 
 The present working directory displayed should match the directory you changed
 to in Exercise 1.  Note, the two may not match at the very beginning if you
@@ -40,22 +41,24 @@ changes directory, and the "pwd" command reflects this.
 ----
 
 $ ls -la
-<type or copy-paste the result here>
-
+drwxr-xr-x  5 sgriswold  staff   160 Jan 13 16:29 .
+drwxr-xr-x  6 sgriswold  staff   192 Jan 13 19:26 ..
+drwxr-xr-x  3 sgriswold  staff    96 Jan 13 16:29 database
+drwxr-xr-x  4 sgriswold  staff   128 Jan 13 16:29 src
 
 ----
 5.  What do the "." and ".." directories displayed in the directory listing in
     Exercise 4 represent?
 ----
 
-<type your answer here>
+The present directory and the parent directory respectively.
 
 ----
 6.  What are the names of the files, including any dot-files, displayed in the
     directory listing in Exercise 4?
 ----
 
-<type or copy-paste your answer here>
+pom.xml
 
 
 ----
@@ -63,8 +66,10 @@ $ ls -la
     the directory listing in Exercise 4?
 ----
 
-<type or copy-paste your answer here>
-
+java-helloworld
+Student-exercises
+Database
+src
 
 ----
 8.  pom.xml is a Maven build file. You will learn more about Maven in later
@@ -95,7 +100,11 @@ $ less database/pagila.sql
 
 You are encouraged to make "less" part of your standard command line toolkit.
 
-<type or copy-paste the first five lines of either file here>
+	<modelVersion>4.0.0</modelVersion>
+        <groupId>com.techelevator</groupId>
+        <artifactId>helloworld</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
+        <packaging>jar</packaging>
 
 ----
 9.  This is good time to create a Git snapshot of your progress.  Usually,
