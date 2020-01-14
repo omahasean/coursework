@@ -8,6 +8,9 @@ public class Exercises {
         1. 4 birds are sitting on a branch. 1 flies away. How many birds are left on
         the branch?
         */
+		int birdsOnBranch = 4;
+		int birdsFlyingAway = 1;
+		int birdsStillOnBranch = birdsOnBranch - birdsFlyingAway;
 
 		// ### EXAMPLE:
 		int initialNumberOfBirds = 4;
@@ -18,7 +21,11 @@ public class Exercises {
         2. There are 6 birds and 3 nests. How many more birds are there than
         nests?
         */
-
+		int birds = 6;
+		int nests = 3;
+		int extraBirds = birds - nests;
+	
+		
 		// ### EXAMPLE:
 		int numberOfBirds = 6;
 		int numberOfNests = 3;
@@ -28,69 +35,108 @@ public class Exercises {
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
         many raccoons are left in the woods?
         */
+		int racoonsInWoods = 3;
+		int hungryRacoons = 2;
+		int racoonsLeftInWoods = racoonsInWoods - hungryRacoons;
+	
+		
 
         /*
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
         */
-
+		int flowers = 5;
+		int bees = 3;
+		int differenceInFlowersBees= flowers - bees;
         /*
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
         breadcrumbs, too. How many pigeons are eating breadcrumbs now?
         */
-
+		int lonelyPigeon = 1;
+		int friendlyPigeon = 1;
+		int totalPigeons = lonelyPigeon + friendlyPigeon;
         /*
         6. 3 owls were sitting on the fence. 2 more owls joined them. How many
         owls are on the fence now?
         */
-
+		int fenceOwls = 3;
+		int joiningOwls = 2;
+		int totalOwls = fenceOwls + joiningOwls;
         /*
         7. 2 beavers were working on their home. 1 went for a swim. How many
         beavers are still working on their home?
         */
-
+		int beaversAtHome = 2;
+		int beaversSwimming = 1;
+		int beaversWorking = beaversAtHome - beaversSwimming;
         /*
         8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
         many toucans in all?
         */
-
+		int toucansOnTree = 2;
+		int toucanJoining = 1;
+		int totalToucans = toucansOnTree + toucanJoining;
         /*
         9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
         are there than nuts?
         */
+		int squirrels = 4;
+		int nuts = 2;
+		int squirrelNutDifference = squirrels - nuts;
+		
 
         /*
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find?
         */
-
+		double quarter = .25;
+		double dime = .1;
+		double nickel = .05;
+		double totalMoney = quarter + dime + nickel + nickel;
         /*
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
         class bakes 18 muffins, Mrs. MacAdams's class bakes 20 muffins, and
         Mrs. Flannery's class bakes 17 muffins. How many muffins does first
         grade bake in all?
         */
-
+		
+		int brierClass = 18;
+		int macAdamsClass = 20;
+		int flanneryClass = 17;
+		int totalMuffins = brierClass + macAdamsClass + flanneryClass;
         /*
         12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
         much did she spend in all for the two toys?
         */
-
+		double yoyo = .24;
+		double whistle = .14;
+		double totalSpentInDollars = yoyo + whistle;
+		
         /*
         13. Mrs. Hilt made 5 Rice Krispie Treats. She used 8 large marshmallows
         and 10 mini marshmallows.How many marshmallows did she use
         altogether?
         */
+		int miniMarshmellows = 10;
+		int largeMarshmellows = 8;
+		int totalMarshmellows = miniMarshmellows + largeMarshmellows;
 
         /*
         14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
         Elementary School received 17 inches of snow. How much more snow
         did Mrs. Hilt's house have?
         */
+		int hiltHouseSnow = 29;
+		int elementarySnow = 17;
+		int differenceOfSnowfall = hiltHouseSnow - elementarySnow;
 
         /*
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
+		int toyTruck = 3;
+		int pencil = 2;
+		int hiltWallet = 10;
+		int totalInWallet = hiltWallet - (toyTruck + pencil);
 
         /*
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
