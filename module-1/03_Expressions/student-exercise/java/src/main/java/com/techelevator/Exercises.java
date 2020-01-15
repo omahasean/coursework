@@ -10,6 +10,9 @@ public class Exercises {
 	 sleepIn(false, true) → true
 	 */
 	public boolean sleepIn(boolean weekday, boolean vacation) {
+		if (vacation||!weekday) {
+			return true;
+		}
 		return false;
 	}
 
@@ -61,8 +64,15 @@ public class Exercises {
 	 diff21(-10) → 31
 	 */
 	public int diff21(int n) {
+		if (n<21) {
+			return 21-n;
+		}
+		else if(n>21) {
+				return (21-n)*-2;
+			}
+
 		return 0;
-	}
+		}
 
 	/*
 	 5. We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23.
@@ -73,6 +83,9 @@ public class Exercises {
 	 parrotTrouble(false, 6) → false
 	 */
 	public boolean parrotTrouble(boolean talking, int hour) {
+		if ((talking) && (20<hour || hour <7)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -83,6 +96,12 @@ public class Exercises {
 	 makes10(1, 9) → true
 	 */
 	public boolean makes10(int a, int b) {
+		if (a==10||b==10) {
+			return true;
+		}
+		else if (a+b == 10) {
+			return true;
+		}
 		return false;
 	}
 
@@ -94,6 +113,12 @@ public class Exercises {
 	 posNeg(-4, -5, true) → true
 	 */
 	public boolean posNeg(int a, int b, boolean negative) {
+		if ((a<0 && b<0) && negative) {
+			return true;
+		}
+		else if ((a<0 ^ b<0)&&(!negative)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -105,6 +130,12 @@ public class Exercises {
 	 or35(8) → false
 	 */
 	public boolean or35(int n) {
+		if (n%3 == 0){
+			return true;
+		}
+		else if (n%5 == 0){
+			return true;
+		}
 		return false;
 	}
 
@@ -115,6 +146,9 @@ public class Exercises {
 	 icyHot(2, 120) → false
 	 */
 	public boolean icyHot(int temp1, int temp2) {
+		if ((temp1<0 || temp1>100) && (temp2>100 || temp2<0)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -125,6 +159,12 @@ public class Exercises {
 	 in1020(8, 99) → false
 	 */
 	public boolean in1020(int a, int b) {
+		if ((a<=20 && a>=10) || (b<=10 && b>=10)) {
+			return true;
+		}
+		else if (b<=10 && b>=10){
+			return true;
+		}
 		return false;
 	}
 
