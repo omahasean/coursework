@@ -162,7 +162,7 @@ public class Exercises {
 		if ((a<=20 && a>=10) || (b<=10 && b>=10)) {
 			return true;
 		}
-		else if (b<=10 && b>=10){
+		else if (b<=20 && b>=10){
 			return true;
 		}
 		return false;
@@ -176,6 +176,15 @@ public class Exercises {
 	 hasTeen(20, 10, 13) → true
 	 */
 	public boolean hasTeen(int a, int b, int c) {
+		if (a>=13 && a<=19) {
+			return true;
+		}
+		else if (b>=13 && b<=19) {
+			return true;
+		}
+		else if (c>=13 && c<=19) {
+			return true;
+		}
 		return false;
 	}
 
@@ -187,6 +196,9 @@ public class Exercises {
 	 loneTeen(13, 13) → false
 	 */
 	public boolean loneTeen(int a, int b) {
+		if ((a<20 && a>12) ^ (b<20 && b>12)) {
+			return true;
+		}
 		return false;
 	}
 
@@ -199,7 +211,15 @@ public class Exercises {
 	public int intMax(int a, int b, int c) {
 		
 		int largest = 0;
-		
+		if (a>=b && a>=c) {
+			largest = a;
+		}
+		else if (b>=a && b>=c) {
+			largest = b;
+		}
+		else if (c>=b && c>=a) {
+			largest = c;
+		}
 		
 		
 		
@@ -214,6 +234,9 @@ public class Exercises {
 	 in3050(40, 50) → true
 	 */
 	public boolean in3050(int a, int b) {
+		if (((a>=30 && a<=40) && (b>=30 && b<=40)) || ((a>=40 && a<=50) && (b>=40 && b<=50)))  {
+			return true;
+		}
 		return false;
 	}
 
@@ -225,7 +248,17 @@ public class Exercises {
 	 max1020(11, 9) → 11
 	 */
 	public int max1020(int a, int b) {
+		if (a<0 || b<0) {
 		return 0;
+		}
+		else if ((a>=10 && a<=20) && (a>=b || b>20)){
+			return a;
+		}
+		else if((b>=10 && b<=20) && (b>=a))
+			return b;
+		else {
+			return 0;
+		}
 	}
 
 	/*
@@ -238,6 +271,12 @@ public class Exercises {
 	 cigarParty(70, true) → true
 	 */
 	public boolean cigarParty(int cigars, boolean isWeekend) {
+		if (cigars > 39 && isWeekend) {
+			return true;
+		}
+		else if ((cigars >= 40 && cigars <=60) && !isWeekend) {
+			return true;
+		}
 		return false;
 	}
 
@@ -253,6 +292,15 @@ public class Exercises {
 	 dateFashion(5, 5) → 1
 	 */
 	public int dateFashion(int you, int date) {
+		if (you <= 2 || date <=2) {
+			return 0;
+		}
+		else if ((you >= 8 && you>=2) || (date >=8 && date>=2)) {
+			return 2;
+		}
+		else if ((you>=3 && you<=7) && (date>=3 && date<=7)){
+			return 1;
+		}
 		return 0;
 	}
 
@@ -265,6 +313,12 @@ public class Exercises {
 	 squirrelPlay(95, true) → true
 	 */
 	public boolean squirrelPlay(int temp, boolean isSummer) {
+		if ((temp >= 60 && temp<=90) && !isSummer) {
+			return true;
+		}
+		else if ((temp>=60 && temp <=100) && isSummer) {
+			return true;
+		}
 		return false;
 	}
 
@@ -278,6 +332,15 @@ public class Exercises {
 	 caughtSpeeding(65, true) → 0
 	 */
 	public int caughtSpeeding(int speed, boolean isBirthday) {
+		if ((speed <= 60) || (speed<=65 && isBirthday)) {
+			return 0;
+		}
+		else if (((speed > 60 && speed < 81) && !isBirthday) || ((speed > 65 && speed < 86) && isBirthday)){
+			return 1;
+		}
+		else if ((speed> 81 && !isBirthday) || (speed>86)) {
+			return 2;
+		}
 		return 0;
 	}
 
@@ -289,6 +352,12 @@ public class Exercises {
 	 sortaSum(10, 11) → 21
 	 */
 	public int sortaSum(int a, int b) {
+		if ((a+b)<10 || (a+b)>19) {
+			return (a+b);
+		}
+		else if ((a+b) >= 10 && (a+b)<=19) {
+			return 20;
+		}
 		return 0;
 	}
 
@@ -302,6 +371,15 @@ public class Exercises {
 	 alarmClock(0, false) → "10:00"
 	 */
 	public String alarmClock(int day, boolean vacation) {
+		if ((day>0 && day < 6)&& !vacation) {
+		return "7:00";
+		}
+		else if (((day==6 || day == 0) && !vacation) ^ ((day>0 && day<6) && vacation)) {
+			return "10:00";
+		}
+		else if ((day == 6 ^ day == 0) && vacation) {
+			return "off";
+		}
 		return "";
 	}
 
