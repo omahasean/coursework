@@ -455,7 +455,7 @@ public class Exercises {
 	 less20(20) → false
 	 */
 	public boolean less20(int n) {
-		if (20%n == 1 || 20%n == 2) {
+		if (n%20 == 18 || n%20 == 19 ) {
 			return true;
 		}
 		return false;
@@ -469,7 +469,7 @@ public class Exercises {
 	 nearTen(19) → true
 	 */
 	public boolean nearTen(int num) {
-		if ((num%10 <=2) && (num%10 >= 0)) {
+		if (num%10 == 8 || num%10 == 9 || num%10==2 || num%10 ==1 || num%10 == 0) {
 			return true;
 		}
 		return false;
