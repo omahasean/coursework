@@ -224,10 +224,11 @@ public class Exercises {
 		//declare sum variable
 		int sum = 0;
 		//exclude 13 and the number after
+		int is13=0;
 		for (int i=0; i<nums.length; i++) {
 			if (nums[i]==13) {
-				sum-=nums[i];
-				nums[i+1] = 0;
+				nums[i]=is13;
+				nums[i+1] = is13;
 				return sum;
 			}
 			else {
@@ -246,6 +247,18 @@ public class Exercises {
 	 has22([2, 1, 2]) → false
 	 */
 	public boolean has22(int[] nums) {
+		//eliminate arrays that do not have 2
+		for (int i=0; i<nums.length; i++) {
+			int numPosition = 0;
+				if (nums[i]==2) {
+				numPosition = i;
+					if(nums[numPosition+1]==2) {
+						return true;
+					}
+					return false;
+				}
+				return false;
+		}
 		return false;
 	}
 	
@@ -256,6 +269,12 @@ public class Exercises {
 	 lucky13([1, 2, 4]) → false
 	 */
 	public boolean lucky13(int[] nums) {
+		for (int i=0; i<nums.length; i++) {
+			if(nums[i]!=1 && nums[i]!=3) {
+				return true;
+			}
+			return false;
+		}
 		return false;
 	}
 
@@ -266,6 +285,11 @@ public class Exercises {
 	 sum28([1, 2, 3, 4]) → false
 	 */
 	public boolean sum28(int[] nums) {
+		//searching for sum of 2's
+		int sum = 0;
+		for (int i=0; i<nums.length; i++) {
+			
+		}
 		return false;
 	}
 
