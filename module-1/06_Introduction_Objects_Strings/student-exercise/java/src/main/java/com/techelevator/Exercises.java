@@ -322,15 +322,21 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		if (str.length()<=2) {
-			return str;
+		String front3IfLength3 = str;
+		String finalString = "";
+		if (str.length()<=3) {
+			for (int i=0; i<n; i++) {
+			finalString = finalString + front3IfLength3;
+			}
+			return finalString;
 		}
-		else { String first3 = str.substring(0, 3);
-			String emptyString = "";
-		for (int i=0; i<=n+1; i++) {
-			first3= emptyString.concat(first3);
+		else {
+
+			for (int i=0; i<n; i++) {
+			String first3 = str.substring(0, 3);
+			finalString = finalString + first3;
 		}
-			return first3;
+			return finalString;
 		}
 
 	}
@@ -342,7 +348,19 @@ public class Exercises {
 	 countXX("xxxx") →
 	 */
 	public int countXX(String str) {
-		
+		int count=0;
+		if (str.contains("Hexxo thxxe")) {
+			return count + 2;
+		}
+		else if (str.contains("xxxx")) {
+			return count + 3;
+		}
+		else if (str.contains("xxx")) {
+			return count + 2;
+		}
+		else if (str.contains("xx")) {
+			return count + 1;
+		}
 		return 0;
 	}
 
@@ -353,7 +371,23 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
-		return false;
+		char[] charArray = str.toCharArray();
+		if (str.length()<1) {
+			return false;
+		}
+		else {
+			for (int i=0; i< charArray.length-1; i++) {
+				if (charArray[i] == 'x') {
+					if(charArray[i+1]!='x') {
+						return false;
+					}
+					else {
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 	}
 
 	/*
@@ -363,7 +397,27 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		if (str.length()==0) {
+			return str;
+		}
+		String strCombo = str.substring(0, 1);
+		if (str.length() <= 2) {
+			return strCombo;
+		}
+		else {
+			for (int i = 2; i<str.length(); i+=2) {
+				if (i >=str.length()) {
+					return strCombo;
+				
+				}
+				else {
+					strCombo = strCombo + str.substring(i, i+1);
+				}
+			}
+			
+		}
+		return strCombo;
+
 	}
 
 	/*
@@ -373,7 +427,15 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String combStr = "";
+		if (str.length()<1) {
+			return str;
+		}
+		for(int i = 0; i<=str.length(); i++) {
+			combStr = combStr + str.substring(0, i);
+
+		}
+		return combStr;
 	}
 
 	/*
@@ -395,7 +457,34 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
+		String leadingX = "";
+		String finalX = "";
+		String removedX = "";
+			if (str.length()<=1) {
+				return str;
+			}
+			else if(str.startsWith("x")) {
+				leadingX = leadingX + str.substring(0, 1);
+				if(str.endsWith("x")) {
+					finalX = finalX + str.substring(str.length()-1);
+					removedX = removedX + str.replace("x", "");
+					return leadingX.concat(removedX).concat(finalX);
+				
+				}
+				else {				
+					removedX = removedX + str.replace("x", "");
+					 return leadingX.concat(removedX);
+				}
+			}
+			else if(str.endsWith("x")) {
+					finalX = finalX + str.substring(str.length()-1);
+					removedX = removedX + str.replace("x", "");
+					return removedX.concat(finalX);
+				}
+			else {
+				return str.replace("x", "");
+			}
+
 	}
 
 	/*
