@@ -1,10 +1,11 @@
 package com.techelevator;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
 import java.util.LinkedList;
-
+import java.util.HashMap;
 public class Scratchpad {
 	public static void main(String[] args) {
 
@@ -64,5 +65,17 @@ public class Scratchpad {
 		String previousPage = browserStack.pop();
 		System.out.println("Previous page: " + previousPage);
 	}
+	
+	//****MAPS AND SETS****
+	Integer one = new Integer(1);
+	Map<Integer,String> myNewMap = new HashMap<Integer,String>();
+	myNewMap.put(one, "myValue1");
+	myNewMap.put(new Integer(2), "myValue2");
+	
+	String rs = myNewMap.get(1);
+	System.out.print(rs);
+	
+	
+	
 }
 }
