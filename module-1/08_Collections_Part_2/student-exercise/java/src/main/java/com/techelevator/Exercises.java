@@ -1,8 +1,12 @@
 package com.techelevator;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Exercises {
 
@@ -136,13 +140,22 @@ public class Exercises {
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
 		
-			if (peterPaul.get("Peter")>=5000 && peterPaul.get("Paul")>=1000) {
+			if (peterPaul.get("Peter")>=5000 && peterPaul.get("Paul")>=10000) {
 				int investedPeter = (peterPaul.get("Peter")/4)*3;
 				int investedPaul = (peterPaul.get("Paul")/4)*3;
-				peterPaul.put("peterPaulPartnership", peterPaul.get("Peter")/4 + peterPaul.get("Paul")/4);
-				peterPaul.put("Peter", investedPeter);
-				peterPaul.put("Paul", investedPaul);
-				return peterPaul;
+				if (peterPaul.get("Peter")%2==0 && peterPaul.get("Paul")%2==0) {
+					peterPaul.put("PeterPaulPartnership", peterPaul.get("Peter")/4 + peterPaul.get("Paul")/4);
+					peterPaul.put("Peter", investedPeter);
+					peterPaul.put("Paul", investedPaul);
+					return peterPaul;
+				}
+				else {
+					peterPaul.put("PeterPaulPartnership", peterPaul.get("Peter")/4 + peterPaul.get("Paul")/4 + 1);
+					peterPaul.put("Peter", investedPeter);
+					peterPaul.put("Paul", investedPaul);
+					return peterPaul;
+				}
+				
 			}
 		return peterPaul;
 	}
@@ -156,7 +169,13 @@ public class Exercises {
 	 * beginningAndEnding(["muddy", "good", "moat", "good", "night"]) → {"g": "d", "m": "t", "n": "t"}
 	 */
 	public Map<String, String> beginningAndEnding(String[] words) {
-		return null;
+		Map<String,String> firstAndLast = new HashMap<String, String>();
+			for (int i = 0; i<words.length; i++) {
+				String firstLetter = words[i].substring(0,1);
+				String lastLetter = words[i].substring(words[i].length()-1);
+				firstAndLast.put(firstLetter, lastLetter);
+			}
+		return firstAndLast;
 	}
 
 	/*
@@ -171,6 +190,22 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> wordCount(String[] words) {
+		Map<String,Integer> numberedWords = new HashMap<String,Integer>();
+			if (words.length>1) {
+				for (int i=0; i<words.length; i++) {
+					String key = words[i];
+					int timesEntered = 0;
+					for (int x = 0; x<words.length; x++) {
+						if(words[x].equals(words[i])) {
+							timesEntered++; 
+						}
+					}
+					
+					numberedWords.put(key, timesEntered);
+					
+				}
+				return numberedWords;
+			}
 		return null;
 	}
 
@@ -186,7 +221,25 @@ public class Exercises {
 	 *
 	 */
 	public Map<Integer, Integer> integerCount(int[] ints) {
-		return null;
+		Map<Integer,Integer> numberedInts = new HashMap<Integer,Integer>();
+		if (ints.length>1) {
+			for (int i=0; i<ints.length; i++) {
+				int key = ints[i];
+				int timesEntered = 0;
+				for (int x = 0; x<ints.length; x++) {
+					if(ints[x]==ints[i]) {
+						timesEntered++; 
+					}
+				}
+				
+				numberedInts.put(key, timesEntered);
+				
+			}
+			return numberedInts;
+//			return null;
+		}
+//
+		return numberedInts;
 	}
 
 	/*
@@ -199,7 +252,24 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Boolean> wordMultiple(String[] words) {
-		return null;
+		Map<String,Boolean> boolMap = new HashMap<String, Boolean>();
+
+			
+			for (int i=0; i<words.length; i++) {
+				int timesAppeared = 0;
+				boolean twoOrMore = false;
+				for (int x = 0; x<words.length; x++) {
+					if (words[i].equals(words[x])) {
+						timesAppeared++;
+						if(timesAppeared>=2) {
+							twoOrMore = true;
+							boolMap.put(words[i], twoOrMore);
+						}
+					}
+				}
+			}
+		return boolMap;
+
 	}
 
 	/*
@@ -213,6 +283,11 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse, Map<String, Integer> remoteWarehouse) {
+		Map<String,Integer> inventoryFix = new HashMap <String, Integer>();
+		Set <String> skuMatching = new HashSet<String>();
+			skuMatching.add(mainWarehouse);
+			
+			
 		return null;
 	}
 
@@ -242,7 +317,17 @@ public class Exercises {
 	 distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) -> ["jingle", "bells", "all", "the", "way"]
 	 */
 	public List<String> distinctValues(List<String> stringList) {
-		return null;
+		Set <String> checkDoubles = new LinkedHashSet<String>();
+		List <String> noDoubles = new ArrayList<String>();
+			for (int i = 0; i<stringList.size(); i++) {
+				checkDoubles.add(stringList.get(i));
+			}
+			String[] noDoublesArray = new String[checkDoubles.size()];
+			checkDoubles.toArray(noDoublesArray);
+			for (int i=0; i<noDoublesArray.length; i++) {
+				noDoubles.add(noDoublesArray[i]);
+			}
+		return noDoubles;
 	}
 
 }
