@@ -216,40 +216,40 @@ public class Exercises {
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
 		List<Integer> comboArray = new ArrayList<Integer>();
-			if (listOne.size()<1) {
-				return listTwo;
+
+		int lengthTest = 0;
+		int listOneSize = listOne.size();
+		int listTwoSize = listTwo.size();
+
+		if (listOneSize > listTwoSize) {
+			lengthTest = listOneSize;
+		} else {
+			lengthTest = listTwoSize;
+		}
+		// q1
+		Queue<Integer> queueListOne = new LinkedList<Integer>();
+		for (Integer i : listOne) {
+			queueListOne.offer(i);
+		}
+		// q2
+		Queue<Integer> queueListTwo = new LinkedList<Integer>();
+		for (Integer i : listTwo) {
+			queueListTwo.offer(i);
+		}
+
+		// Add from q
+		for (int i = 0; i <= lengthTest - 1; i++) {
+			if (i < listOneSize) {
+				comboArray.add(queueListOne.poll());
 			}
-			else if(listTwo.size()<1) {
-				return listOne;
+			if (i < listTwoSize) {
+				comboArray.add(queueListTwo.poll());
+
 			}
-			else if (listOne.size()==listTwo.size()) {
-				for (int i=0; i<listOne.size(); i++) {
-					comboArray.add(listOne.get(i));
-					comboArray.add(listTwo.get(i));
-					System.out.print(comboArray);
-				}
-			}
-			else if (listOne.size()>listTwo.size()) {
-				for(int i=0; i< listTwo.size(); i++) {
-					comboArray.add(listOne.get(i));
-					comboArray.add(listTwo.get(i));
-				}
-				int differenceInSize = listOne.size()-listTwo.size();
-				comboArray.add(differenceInSize, listOne.size()-1);
-				System.out.print(comboArray);
-			}
-			else if (listTwo.size()>listOne.size()) {
-				for(int i=0; i< listOne.size(); i++) {
-					comboArray.add(listOne.get(i));
-					comboArray.add(listTwo.get(i));
-					
-				}
-				int differenceInSize = listTwo.size()-listOne.size();
-				comboArray.add(differenceInSize, listTwo.size()-1);
-				System.out.print(comboArray);
-			}
-		
+
+		}
 		return comboArray;
+
 	}
 
 	/*

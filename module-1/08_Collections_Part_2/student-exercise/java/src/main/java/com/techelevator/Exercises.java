@@ -1,5 +1,6 @@
 package com.techelevator;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -35,7 +36,23 @@ public class Exercises {
 	 *
 	 */
 	public String animalGroupName(String animalName) {
-		return null;
+		Map<String,String> animalGroups = new HashMap<String,String>();
+			animalGroups.put("rhino", "Crash");
+			animalGroups.put("giraffe", "Tower");
+			animalGroups.put("elephant", "Herd");
+			animalGroups.put("lion", "Pride");
+			animalGroups.put("crow", "Murder");
+			animalGroups.put("pigeon", "Kit");
+			animalGroups.put("flamingo", "Pat");
+			animalGroups.put("deer", "Herd");
+			animalGroups.put("dog", "Pack");
+			animalGroups.put("crocodile", "Float");
+			
+			if (animalGroups.get(animalName.toLowerCase()) != null) {
+				return animalGroups.get(animalName.toLowerCase());
+			}
+		
+			return "unknown";
 	}
 
 	/*
@@ -61,7 +78,19 @@ public class Exercises {
 	 *
 	 */
 	public Double isItOnSale(String itemNumber) {
-		return null;
+		double noSale = 0.00;
+		Map<String,Double> saleCheck = new HashMap<String,Double>();
+			saleCheck.put("KITCHEN4001", 0.20);
+			saleCheck.put("GARAGE1070", 0.15);
+			saleCheck.put("LIVINGROOM", 0.10);
+			saleCheck.put("BEDROOM3434", 0.60);
+			saleCheck.put("BATH0073", 0.15);
+			
+			if(saleCheck.get(itemNumber.toUpperCase()) != null) {
+				return saleCheck.get(itemNumber.toUpperCase());
+			}
+			
+		return noSale;
 	}
 
 	/*
@@ -75,7 +104,23 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
-		return null;
+			if (peterPaul.get("Peter") > 0 && peterPaul.get("Paul")<1000) {
+				int peterMoney = peterPaul.get("Peter");
+					if (peterMoney%2==0) {
+						int splitMoneyEven = peterMoney/2;
+						int paulMoney = peterPaul.get("Paul");
+						peterPaul.put("Paul", paulMoney+splitMoneyEven);
+						peterPaul.put("Peter", splitMoneyEven);
+					}
+					else {
+						int splitMoneyEven = peterMoney/2;
+						int paulMoney = peterPaul.get("Paul");
+						peterPaul.put("Paul", paulMoney+splitMoneyEven);
+						peterPaul.put("Peter", splitMoneyEven+1);
+					}
+				
+			}
+		return peterPaul;
 	}
 
     /*
@@ -90,7 +135,16 @@ public class Exercises {
 	 *
 	 */
 	public Map<String, Integer> peterPaulPartnership(Map<String, Integer> peterPaul) {
-		return null;
+		
+			if (peterPaul.get("Peter")>=5000 && peterPaul.get("Paul")>=1000) {
+				int investedPeter = (peterPaul.get("Peter")/4)*3;
+				int investedPaul = (peterPaul.get("Paul")/4)*3;
+				peterPaul.put("peterPaulPartnership", peterPaul.get("Peter")/4 + peterPaul.get("Paul")/4);
+				peterPaul.put("Peter", investedPeter);
+				peterPaul.put("Paul", investedPaul);
+				return peterPaul;
+			}
+		return peterPaul;
 	}
 
 	/*
