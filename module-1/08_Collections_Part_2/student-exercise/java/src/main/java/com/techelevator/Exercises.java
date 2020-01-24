@@ -257,12 +257,16 @@ public class Exercises {
 			
 			for (int i=0; i<words.length; i++) {
 				int timesAppeared = 0;
-				boolean twoOrMore = false;
+
 				for (int x = 0; x<words.length; x++) {
+					boolean twoOrMore = false;
 					if (words[i].equals(words[x])) {
 						timesAppeared++;
 						if(timesAppeared>=2) {
 							twoOrMore = true;
+							boolMap.put(words[i], twoOrMore);
+						}
+						else {
 							boolMap.put(words[i], twoOrMore);
 						}
 					}
@@ -284,11 +288,29 @@ public class Exercises {
 	 */
 	public Map<String, Integer> consolidateInventory(Map<String, Integer> mainWarehouse, Map<String, Integer> remoteWarehouse) {
 		Map<String,Integer> inventoryFix = new HashMap <String, Integer>();
-		Set <String> skuMatching = new HashSet<String>();
-			skuMatching.add(mainWarehouse);
+		Set <String> skusRemote = new LinkedHashSet<String>();
+		Set <String> skusMain = new LinkedHashSet<String>();
+		
+		
+		skusMain = mainWarehouse.keySet();
+		skusRemote=remoteWarehouse.keySet();
+
+		for(String s: skusMain) {
+			for (String k: skusRemote) {
+				if(s == k) {
+					inventoryFix.put(s,  remoteWarehouse.get(k)+mainWarehouse.get(s));
+				}
+				else {
+					inventoryFix.put(s, mainWarehouse.get(s));
+					inventoryFix.put(k, remoteWarehouse.get(k));
+				}
+			}
+		}	
+		
+
 			
 			
-		return null;
+		return inventoryFix;
 	}
 
 	/*
