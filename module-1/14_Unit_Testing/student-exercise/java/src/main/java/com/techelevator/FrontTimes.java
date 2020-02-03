@@ -16,7 +16,8 @@ public class FrontTimes {
 				for (int i = 0; i < n; i++) {
 					result += str;
 				}
-			} else {
+			} 
+			else {
 				for (int i = 0; i < n; i++) {
 					result += str.substring(0, 3);
 				}
