@@ -13,5 +13,11 @@ public class KataFizzBuzzTest {
 		Assert.assertEquals("Fizz", fizzBuzz.fizzBuzzSpecial(21));
 		Assert.assertEquals("Fizz", fizzBuzz.fizzBuzzSpecial(99));
 	}
+	@Test
+	public void TestFizzBuzzIfNumberDivisibleBy5() {
+		Assert.assertEquals("Buzz", fizzBuzz.fizzBuzzSpecial(5));
+		Assert.assertEquals("Buzz", fizzBuzz.fizzBuzzSpecial(25));
+		Assert.assertEquals("Buzz", fizzBuzz.fizzBuzzSpecial(95));
+	}
 
 }
