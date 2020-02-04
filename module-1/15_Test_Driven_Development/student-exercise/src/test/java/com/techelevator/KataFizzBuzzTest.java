@@ -8,7 +8,7 @@ public class KataFizzBuzzTest {
 	KataFizzBuzz fizzBuzz = new KataFizzBuzz();
 	
 	@Test
-	public void FizzBuzzIfNumberIsDivisibleBy3() {
+	public void TestFizzBuzzIfNumberIsDivisibleBy3() {
 		Assert.assertEquals("Fizz", fizzBuzz.fizzBuzzSpecial(3));
 		Assert.assertEquals("Fizz", fizzBuzz.fizzBuzzSpecial(21));
 		Assert.assertEquals("Fizz", fizzBuzz.fizzBuzzSpecial(99));
