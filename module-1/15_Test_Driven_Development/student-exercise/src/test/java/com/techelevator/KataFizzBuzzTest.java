@@ -25,5 +25,11 @@ public class KataFizzBuzzTest {
 		Assert.assertEquals("FizzBuzz", fizzBuzz.fizzBuzzSpecial(30));
 		Assert.assertEquals("FizzBuzz", fizzBuzz.fizzBuzzSpecial(90));
 	}
+	@Test
+	public void TestIfNumbersBetween1And100NotFizzBuzz() {
+		Assert.assertEquals("22", fizzBuzz.fizzBuzzSpecial(22));
+		Assert.assertEquals("84", fizzBuzz.fizzBuzzSpecial(84));
+		Assert.assertEquals("17", fizzBuzz.fizzBuzzSpecial(17));
+	}
 
 }
