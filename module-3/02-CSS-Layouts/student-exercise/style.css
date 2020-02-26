@@ -6,9 +6,80 @@
 * {
     font-family: Tahoma, Verdana, Segoe, sans-serif;
     box-sizing: border-box;
+    margin: 0 px;
+    padding:0px;
+    width: 100%;
 }
 
 html {
     font-size: 16px;
 }
+#student-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas:
+      "student-quote student-quote student-picture"
+      "student-profile student-profile student-contact"
+      "student-experience student-experience student-experience";
+    grid-column-gap: 25px;
+    grid-row-gap: 50px;
+}
+header{
+    padding-bottom: -50px;
+    margin-left: 25px;
+    width: 25%;
+}
+.headline{
+    margin-left: 25px;
+    text-size-adjust: 100%;
+    font-size: 100px;
+    font-stretch: expanded;
+}
 
+#student-quote{
+    grid-area: student-quote;
+
+}
+#student-quote h2{
+    margin-left: 25px;
+    font-size: 40px;
+}
+#student-profile{
+    margin-left: 25px;
+    grid-area: student-profile;
+
+}
+#student-contact {
+    grid-area: student-contact;
+    text-align: center;
+}
+
+#student-picture{
+    grid-area: student-picture;
+    align-content: ceneter;
+    justify-content: start;
+}
+#student-experience{
+    grid-area: student-experience;
+}
+#student-picture img{
+    border-radius: 50%;
+}
+#experience{
+    grid-area: student-experience;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: space-evenly;
+}
+#experience div{
+    width: 30%;
+}
+#experience div i{
+    display: inline;
+}
+#experience div h3{
+    display: inline;
+    color: var(--blue);
+}
