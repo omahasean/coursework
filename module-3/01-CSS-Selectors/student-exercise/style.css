@@ -13,5 +13,137 @@
     box-sizing: border-box;
     font-family: Tahoma, Verdana, Segoe, sans-serif;
   }
+
+ /* aside{
+   width: 200px;
+   height: 100%;
+   box-align: left fixed;
+   position: fixed; 
+   z-index: 1;
+   top: 0;
+   left: 0;
+   overflow-x: hidden; 
+   margin-top: 20px;
+   margin-bottom: 250px;
+   border-right: 2px var(--light-blue) solid;
+ }
+ aside img{
+   align-items: var(--top-row-height);
+   width: 150px;
+   padding-left: 20px;
+   margin-bottom: 10px;
+ } 
+ header{
+  padding-bottom: 25px;
+ }
+ header p{
+   display:none;
+ }
+ main img{
+   margin-left: 20px;
+   margin-left: 270px;
+   max-height: 800px;
+ }
+ section {
+   display: inline-flex;
+   width: 70%;
+   margin-left: 250px;
+ }
+ #what-we-do {
+  text-decoration-color: red;
+ } */
+
+ aside {
+  width: 200px;
+  position: fixed;
+  height: 1000px;
+  border-right: 2px solid rgba(0, 173, 238, 0.4);
+  float: left;
+  background-color: white;
+  margin-right: 50px;
+  }
   
+  aside img {
+  width: 150px;
+  display: block;
+  margin: 0 auto;
+  }
   
+  a {
+  color: #00ADEE;
+  font: Tahoma;
+  text-transform: uppercase;
+  text-decoration: none;
+  }
+  
+  nav ul {
+  list-style: none;
+  padding-left: 0;
+  }
+  ul li:nth-of-type(3){
+    display:block;
+    font-size: 20px;
+    text-align: center;
+    margin: 10px auto;
+    width: 70%;
+    padding: 10px 0px;
+  }
+  nav li {
+  display:block;
+  font-size: 20px;
+  text-align: center;
+  list-style: none;
+  margin: 10px auto;
+  border-bottom: 1px solid rgba(0, 173, 238, 0.4);
+  width: 70%;
+  padding: 10px 0px;
+  }
+  
+  header{
+  height: 150px;
+  
+  }
+  
+  header img {
+  height: 150px;
+  
+  }
+  
+  main {
+  margin-left: 230px;
+  
+  }
+  
+  section {
+  width: 2400px;
+  height: 300px;
+  
+  }
+  section div{
+  float: left;
+  width: 33%;
+  height: 300px;
+  margin: 5px auto;
+  padding: 0 2%;
+  
+  }
+  
+  section h2 {
+  color: #8CC36F;
+  }
+  
+  section p {
+  font-size: 18px;
+  }
+  
+  #our-work {
+  border-left: 2px solid rgba(170, 239, 135, 0.8);
+  border-right: 2px solid rgba(170, 239, 135, 0.8);
+  }
+  
+  footer {
+  margin-top: 30px;
+  }
+  #logos img{
+    max-width: 50px;
+  }
