@@ -8,112 +8,154 @@
 <div id="card-page">
 	<c:import url="/WEB-INF/jsp/common/filters.jsp">
 		<%-- Modify the baseRoute to apply filters to the current route. --%>
-		<c:param name="baseRoute" value="#" />
+		<c:param name="baseRoute" value="/products" />
 	</c:import>
 
 	<div class="main-content">
-		<!-- Container for Sorting Choices
-         
-         Each link should take the user to this current page and use any combination of the following
-         querystring parameters to sort the page:
-            - sortOrder (string) - PriceLowToHigh,PriceHighToLow,RatingHighToLow
-    	-->
 		<div id="sorting-options">
 			<h3>Sort By</h3>
+			<c:url var="LowToHighPrice" value="/products">
+				<c:param name="sortOrder">PriceLowToHigh</c:param>
+			</c:url>
+
+			<c:url var="HighToLowPrice" value="/products">
+				<c:param name="sortOrder">PriceHighToLow</c:param>
+			</c:url>
+
+			<c:url var="HighToLowRating" value="/products">
+				<c:param name="sortOrder">RatingHighToLow</c:param>
+			</c:url>
 			<ul>
-				<li><a href="#">Price - Low to High</a></li>
-				<li><a href="#">Price - High to Low</a></li>
-				<li><a href="#">Rating - High to Low</a></li>
+				<li><a href="${LowToHighPrice}">Price - Low to High</a></li>
+				<li><a href="${HighToLowPrice}">Price - High to Low</a></li>
+				<li><a href="${HighToLowRating}">Rating - High to Low</a></li>
 			</ul>
 		</div>
-
-		<!-- Container for all of the Products -->
-		<!-- The list of products is available using the `products` variable -->
 		<div id="grid">
 
-			<!-- 
-			The following HTML shows different examples of what HTML could be rendered based on different rules. 
-			For purposes of demonstration we've written it out so you can see it when you load the page up. 
-			-->
-			
-			
-			
-			
+			<c:forEach var="product" items="${products }">
+				<c:choose>
+					<c:when test="${product.remainingStock == 0 }">
 
-			<!-- Standard Product -->
-			<div class="tile ">
-				<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-				<a class="product-image" href="#"> 
-					<img src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
-				</a>
-				<div class="details">
-					<p class="name">Grey Sofa</p>
+						<div class="tile sold-out">
 
-					<!-- .filled will make the star solid -->
-					<div class="rating">
-						<span class="filled">&#9734;</span> 
-						<span class="filled">&#9734;</span>
-						<span>&#9734;</span> 
-						<span>&#9734;</span> 
-						<span>&#9734;</span>
-					</div>
+							<span class="banner">Sold Out</span>
 
-					<p class="price">$939.00</p>
-				</div>
-			</div>
+							<c:url var="productDetailsPageHref" value="/products/detail">
+								<c:param name="id">${product.id }</c:param>
+							</c:url>
+							<a class="product-image" href="${productDetailsPageHref }"> <img
+								src="<c:url value="/images/product-images/${product.imageName }" />" />
+							</a>
 
-			<div class="tile ">
-				<!-- Include this if the product is considered a Top Seller -->
-				<span class="banner top-seller">Top Seller!</span>
+							<div class="details">
+								<p class="name">${product.name}</p>
 
-				<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-				<a class="product-image" href="#"> 
-					<img src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
-				</a>
-				<div class="details">
-					<p class="name">Grey Sofa</p>
 
-					<!-- .filled will make the star solid -->
-					<div class="rating">
-						<span class="filled">&#9734;</span> 
-						<span class="filled">&#9734;</span>
-						<span class="filled">&#9734;</span> 
-						<span class="filled">&#9734;</span>
-						<span>&#9734;</span>
-					</div>
+								<div class="rating">
 
-					<!-- Include this if the remaining quantity is greater than 0, but less than or equal to 5 -->
-					<span class="product-alert">Only 4 left!</span>
-					<p class="price">$939.00</p>
-				</div>
-			</div>
+									<c:forEach begin="1" end="5" var="count">
+										<c:choose>
+											<c:when test="${product.averageRating >= count}">
+												<span class="filled">&#9734;</span>
+											</c:when>
+											<c:otherwise>
+												<span>&#9734;</span>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+								</div>
 
-			<!-- Add the .sold-out class if the remaining quantity is 0 -->
-			<div class="tile sold-out">
-				<!-- Include this if the remaining quantity is 0 -->
-				<span class="banner">Sold Out</span>
+								<p class="price">
+									<fmt:formatNumber type="currency" currencySymbol="$"
+										maxFractionDigits="2" value="${product.price }" />
+								</p>
+							</div>
+						</div>
+					</c:when>
+					<c:when test="${product.topSeller == true}">
+						<div class="tile ">
+							<span class="banner top-seller">Top Seller!</span>
+							<c:url var="productDetailsPageHref" value="/products/detail">
+								<c:param name="id">${product.id }</c:param>
+							</c:url>
+							<a class="product-image" href="${productDetailsPageHref }"> <img
+								src="<c:url value="/images/product-images/${product.imageName }" />" />
+							</a>
 
-				<!-- Link to the Detail page using the product id (e.g. products/detail?id=1) -->
-				<a class="product-image" href="#"> 
-					<img src="<c:url value="/images/product-images/grey-sofa.jpg" />" />
-				</a>
-				<div class="details">
-					<p class="name">Grey Sofa</p>
+							<div class="details">
+								<p class="name">${product.name}</p>
 
-					<!-- .filled will make the star solid -->
-					<div class="rating">
-						<span class="filled">&#9734;</span> 
-						<span>&#9734;</span> 
-						<span>&#9734;</span>
-						<span>&#9734;</span> 
-						<span>&#9734;</span>
-					</div>
 
-					<p class="price">$939.00</p>
-				</div>
-			</div>
+								<div class="rating">
+									<c:forEach begin="1" end="5" var="count">
+										<c:choose>
+											<c:when test="${product.averageRating >= count}">
+												<span class="filled">&#9734;</span>
+											</c:when>
+											<c:otherwise>
+												<span>&#9734;</span>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+								</div>
+
+
+								<c:if
+									test="${product.remainingStock > 0 && product.remainingStock <= 5 }">
+									<span class="product-alert">Only
+										${product.remainingStock } left!</span>
+								</c:if>
+								<p class="price">
+									<fmt:formatNumber type="currency" currencySymbol="$"
+										maxFractionDigits="2" value="${product.price }" />
+								</p>
+							</div>
+						</div>
+					</c:when>
+					<c:otherwise>
+						<div class="tile ">
+
+							<c:url var="productDetailsPageHref" value="/products/detail">
+								<c:param name="id">${product.id }</c:param>
+							</c:url>
+							<a class="product-image" href="${productDetailsPageHref }"> <img
+								src="<c:url value="/images/product-images/${product.imageName }" />" />
+							</a>
+
+							<div class="details">
+								<p class="name">${product.name}</p>
+
+
+								<div class="rating">
+									<c:forEach begin="1" end="5" var="count">
+										<c:choose>
+											<c:when test="${product.averageRating >= count}">
+												<span class="filled">&#9734;</span>
+											</c:when>
+											<c:otherwise>
+												<span>&#9734;</span>
+											</c:otherwise>
+										</c:choose>
+									</c:forEach>
+
+								</div>
+								<c:if
+									test="${product.remainingStock > 0 && product.remainingStock <= 5 }">
+									<span class="product-alert">Only
+										${product.remainingStock } left!</span>
+								</c:if>
+
+								<p class="price">
+									<fmt:formatNumber type="currency" currencySymbol="$"
+										maxFractionDigits="2" value="${product.price }" />
+								</p>
+							</div>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
 		</div>
 	</div>
 </div>
-
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
