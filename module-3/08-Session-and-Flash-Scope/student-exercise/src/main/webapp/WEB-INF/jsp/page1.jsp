@@ -7,7 +7,7 @@
 </c:import>
 
 
-<c:url var="formAction" value="/FavoriteThings/PagePost1" />
+<c:url var="formAction" value="PagePost1" />
 <form method="POST" action="${formAction}">
 	<label>What is your favorite color?</label>
 	<input type="text" name="favoriteColor">

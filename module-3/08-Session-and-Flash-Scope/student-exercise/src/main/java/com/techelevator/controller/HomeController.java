@@ -19,31 +19,5 @@ public class HomeController {
 		return new ModelAndView(redirect);
 	}
 
-	@RequestMapping("/page2")
-	public ModelAndView redirectToFavoriteThingsPage2() {
-		// Because we want to return a 301 status code, we need to use RedirectView
-		// rather than redirect:
-		// Return a redirect relative to the context of the application
-		RedirectView redirect = new RedirectView("/FavoriteThings/Page2", true);
-		redirect.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
-		return new ModelAndView(redirect);
-	}
-	@RequestMapping("/page3")
-	public ModelAndView redirectToFavoriteThingsPage3() {
-		// Because we want to return a 301 status code, we need to use RedirectView
-		// rather than redirect:
-		// Return a redirect relative to the context of the application
-		RedirectView redirect = new RedirectView("/FavoriteThings/Page3", true);
-		redirect.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
-		return new ModelAndView(redirect);
-	}
-	@RequestMapping("/results")
-	public ModelAndView redirectToFavoriteThingsPage() {
-		// Because we want to return a 301 status code, we need to use RedirectView
-		// rather than redirect:
-		// Return a redirect relative to the context of the application
-		RedirectView redirect = new RedirectView("/FavoriteThings/results", true);
-		redirect.setStatusCode(HttpStatus.MOVED_PERMANENTLY);
-		return new ModelAndView(redirect);
-	}
+
 }

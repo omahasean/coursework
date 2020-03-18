@@ -33,14 +33,14 @@ public class FavoriteThingsController {
 		Favorite favorites = new Favorite();
 		
 		if (!map.containsAttribute("favorites")) {
-			HashMap<String, Favorite> cartMap = new HashMap<String, Favorite>();
 			map.addAttribute("favorites", favorites);
 		}
 		
+		favorites = (Favorite) map.get("favorites");
 		favorites.setColor(favoriteColor);
 		
 		
-		return "redirect:/page2";
+		return "redirect:/FavoriteThings/Page2";
 	}
 	
 	@RequestMapping(path = "/Page2", method = RequestMethod.GET)
@@ -56,7 +56,6 @@ public class FavoriteThingsController {
 		
 		if (!map.containsAttribute("favorites")) {
 			Favorite favorites = new Favorite();
-			HashMap<String, Favorite> cartMap = new HashMap<String, Favorite>();
 			map.addAttribute("favorites", favorites);
 		}
 		
@@ -65,7 +64,7 @@ public class FavoriteThingsController {
 		favorites.setFood(favoriteFood);
 
 		
-		return "redirect:/page3";
+		return "redirect:/FavoriteThings/Page3";
 	}
 	@RequestMapping(path = "/Page3", method = RequestMethod.GET)
 	public String getThirdPage() {
@@ -80,7 +79,6 @@ public class FavoriteThingsController {
 		
 		if (!map.containsAttribute("favorites")) {
 			Favorite favorites = new Favorite();
-			HashMap<String, Favorite> cartMap = new HashMap<String, Favorite>();
 			map.addAttribute("favorites", favorites);
 		}
 		
@@ -89,7 +87,7 @@ public class FavoriteThingsController {
 		favorites.setSeason(favoriteSeason);
 		
 		
-		return "redirect:/results";
+		return "redirect:/FavoriteThings/results";
 	}
 	@RequestMapping(path = "/results", method = RequestMethod.GET)
 	public String getResultsPage(HttpServletRequest request, ModelMap map) {
