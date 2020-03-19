@@ -15,7 +15,9 @@ function turnOn() {
  *
  * @returns {string} your name
  */
-
+function returnsName(){
+  return 'Sean Griswold'
+}
 /**
  * Create a function called returnGivenParameter that takes a
  * single parameter and then returns it.
@@ -23,6 +25,10 @@ function turnOn() {
  * @param {any} thing any value
  * @returns {any} the parameter that we were given
  */
+
+function returnGivenParameter(thing){
+  return thing;
+}
 
 /**
  * Now create a function called takeOptionalParameter
@@ -33,6 +39,10 @@ function turnOn() {
  * @param {any} [thing=0] any value
  * @returns {any} the parameter given, or 0 if none is given
  */
+
+function takeOptionalParameter(thing=0){
+  return thing;
+}
 
 /**
  * Write an anonymous function in the filter that will
@@ -47,7 +57,10 @@ function turnOn() {
  */
 function filterArrayToOnlySingleDigitNumbers(arrayToFilter) {
   return arrayToFilter.filter(
-    // WRITE CODE HERE
+    (x) =>{
+      return x>-10 && x<10;
+    }
+
   );
 }
 
@@ -63,7 +76,10 @@ function filterArrayToOnlySingleDigitNumbers(arrayToFilter) {
  */
 function mapArrayToDoubleAllNumbers(arrayToDouble) {
   return arrayToDouble.map(
-    // WRITE CODE HERE
+    x =>{
+      let y = x*2;
+      return y;
+    }
   );
 }
 
@@ -80,7 +96,9 @@ function mapArrayToDoubleAllNumbers(arrayToDouble) {
  */
 function reduceArrayToFindProduct(arrayToMultiply) {
   return arrayToMultiply.reduce(
-    // WRITE CODE HERE
+   (product, x)=>{
+     return product*x;
+   }
   );
 }
 
@@ -93,7 +111,10 @@ function reduceArrayToFindProduct(arrayToMultiply) {
  */
 function filterStringArrayForSon(arrayToFilter) {
   return arrayToFilter.filter(
-    // WRITE CODE HERE
+    (string) =>{
+      const target = 'son';
+      return string.includes(target);
+    }
   );
 }
 
@@ -106,7 +127,9 @@ function filterStringArrayForSon(arrayToFilter) {
  */
 function makeNamesAllCaps(arrayToCapitalize) {
   return arrayToCapitalize.map(
-    // WRITE CODE HERE
+    str =>{
+      return str.toUpperCase();
+    }
   );
 }
 
@@ -119,6 +142,13 @@ function makeNamesAllCaps(arrayToCapitalize) {
  * with `[]` and put the default value after an `=` sign.
  *
  * Also be sure to document the return type and what it's returning.
+ */
+
+/**
+ * 
+ * @param {number} temperature 
+ * @param {number} temperatureUnit 
+ * @param {boolean} includeUnit 
  */
 
 function convertTemperature(temperature, temperatureUnit, includeUnit = false) {
