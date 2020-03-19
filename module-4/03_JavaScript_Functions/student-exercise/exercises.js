@@ -1,5 +1,12 @@
-/*
- * Document this function
+/**
+ * 
+ * This funciton determines what hemisphere is currently in summer by taking in
+ * an integer month (1=January, 2=February...) and a day of the month then returns
+ * a String defining which hemisphere of Earth is in summer.
+ * 
+ * @param {number} month 
+ * @param {number} day 
+ * @param {String} hemisphere 
  */
 function isSummer(month, day = 1, hemisphere = 'northern') {
   if (month === 7 || month === 8) {
@@ -40,6 +47,18 @@ function isSummer(month, day = 1, hemisphere = 'northern') {
  * @param {boolean} [recommendation=false] does the student have a recommendation
  * @returns {boolean} true if they are admitted
  */
+  const isAdmitted = (gpa, satScore, recommendation=false)=>{
+    if(gpa>=4.0 || satScore>=1300){
+      return true;
+    }
+    else if((gpa>3.0 && recommendation==true)||(satScore>=1200&&recommendation==true)){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
 
 /**
  * Write a function called useParameterToFilterArray so that it takes an anonymous
@@ -49,6 +68,10 @@ function isSummer(month, day = 1, hemisphere = 'northern') {
  * @returns {number[]} the filtered array
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
+
+const useParameterToFilterArray = (filterFunction) =>{
+    return unfilteredArray.filter(filterFunction);
+}
 
 /**
  * Write a function called makeNumber to take two strings
@@ -63,6 +86,14 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the resultant number
  */
 
+ const makeNumber = (first, second) =>{
+   let fullString = first.concat(second);
+   const intToString = parseInt(fullString, 10);
+   return intToString;
+ }
+
+
+
 /**
  * Write a function called addAll that takes an unknown number of parameters
  * and adds them all together. Return the result.
@@ -71,13 +102,33 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
-/*
+const addAll = (...num)=>{
+  let sum=0;
+  num.forEach(element => {
+    sum+=element;
+  });
+  
+  return sum;
+}
+/**
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
+ * 
+ * @param {String[]} unHappyArray array of Strings to be made happy
+ * @returns {String[]} array with happy in front
+ * 
  */
 
-/*
+ function makeHappy (word){
+ return word.map((word)=>{
+    return 'Happy ' + word;
+  })
+
+}
+
+
+/** 
  * Write and document a function called getFullAddressesOfProperties
  * that takes an array of JavaScript objects containing the
  * following keys:
@@ -91,16 +142,33 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * and returns an array of strings that turns the JavaScript objects
  * into mailing addresses in the form of:
  *     streetNumber streetName streetType city state zip
- *
+ *@param {Object[]} address
+ *@returns {String[]}
  * Use `map` and an anonymous function.
  */
 
-/*
+ function getFullAddressesOfProperties(address){
+   return address.map((address)=>{
+  return `${address.streetNumber} ${address.streetName} ${address.streetType} ${address.city} ${address.state} ${address.zip}`})  
+ }
+
+/** 
  * Create and document a function called findLargest.
  *
  * Using `forEach`, find the largest element in an array.
  * It should work for strings and numbers.
+ * @param {Number[]} array
  */
+
+function findLargest(array){
+  let largest=array[1];
+  array.forEach(element => {
+    if(element>largest){
+      largest=element
+    }
+  });
+  return largest;
+}
 
 /*
  * CHALLENGE
