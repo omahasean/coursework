@@ -1,5 +1,5 @@
 // add pageTitle
-const title = 'Grocery List'
+const title = 'My Shopping List'
 // add groceries
 const groceries = [
   'Milk',
@@ -9,7 +9,9 @@ const groceries = [
   'Burger Buns',
   'Beef',
   'Toilet Paper',
-  'Kleenex'
+  'Kleenex',
+  'Chicken',
+  'Rice'
 ];
 /**
  * This function will get a reference to the title and set its text to the value
