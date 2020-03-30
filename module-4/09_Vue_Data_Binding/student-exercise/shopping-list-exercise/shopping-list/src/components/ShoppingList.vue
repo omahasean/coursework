@@ -2,30 +2,48 @@
   <div class="shopping-list">
     <h1>My Shopping List</h1>
     <ul>
-
+      <li
+        v-for= 'item in groceries'
+        v-bind:key= "item"
+        :class= "{completed: item.completed}"
+      >{{item.item}}</li>
     </ul>
   </div>
 </template>
 
 <script>
 export default {
-
-}
+  data() {
+    return {
+      groceries: [
+        { item: "Milk", completed: true },
+        { item: "Eggs", completed: true },
+        { item: "Toilet Paper", completed: true },
+        { item: "Beef", completed: true },
+        { item: "Chicken", completed: true },
+        { item: "Cheese", completed: true },
+        { item: "Ice Cream", completed: true },
+        { item: "Butter", completed: true },
+        { item: "Cookies", completed: false }
+      ]
+    };
+  }
+};
 </script>
 
 <style>
 .shopping-list {
-  width:450px;
+  width: 450px;
   background: #fff;
   margin: 50px auto;
-  font-family: 'Roboto Condensed', sans-serif;
+  font-family: "Roboto Condensed", sans-serif;
   border-radius: 10px;
 }
 h1 {
-  background:#f2f2f2;
-  color:#5c8578;
-  padding:10px;
-  font-size:24px;
+  background: #f2f2f2;
+  color: #5c8578;
+  padding: 10px;
+  font-size: 24px;
   text-transform: uppercase;
   text-align: center;
   margin-bottom: 0px;
@@ -34,19 +52,19 @@ h1 {
 }
 ul {
   list-style-type: none;
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
 }
 li {
   font-size: 24px;
-  border-bottom:1px solid #f2f2f2;
-  padding:10px 20px;
+  border-bottom: 1px solid #f2f2f2;
+  padding: 10px 20px;
 }
-li:last-child{
-  border:0px;
+li:last-child {
+  border: 0px;
 }
 li.completed {
   text-decoration: line-through;
-  color:darkgrey;
+  color: darkgrey;
 }
 </style>
